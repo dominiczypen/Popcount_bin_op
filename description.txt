@@ -1,0 +1,20 @@
+Little study of question:
+
+How many 1's occur in the result of some operations"
+such as *, +, and so on?
+
+METHOD: Loop two unsigned char a, b from 0 to 0xff.
+This gives (1 << 8) * (1 << 8) * 8 [number of bits
+in unsigned char) bits in the resulting unsigned
+char a * b, a + b, etc. 
+
+Note that (1 << 8) * (1 << 8) * 8 = (1 << 19). 
+Do a total popcount (count number of 1's) in all
+the resulting unsigned chars, divide this number
+by (1 << 19). This gives occurrence of 1's.
+
+RESULTS: ^ (bitwise XOR) is totally balanced: 
+Probability of occurrence of 1 is 0.500. 
+The same holds - somewhat surprisingly - for + .
+Probability of occurrence of 1's is a bit 
+lower for multiplication (*) : 0.437.
